@@ -12,7 +12,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route element={<PrivateRoute />}> // Routes protégées
-     
+          
         </Route>
       </Routes>
     </Router>
