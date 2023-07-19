@@ -471,6 +471,6 @@ class __TwigTemplate_7386f113a894488fc52469babe461bad extends Template
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
     }
 }

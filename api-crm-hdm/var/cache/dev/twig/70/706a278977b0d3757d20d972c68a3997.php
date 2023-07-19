@@ -155,6 +155,6 @@ class __TwigTemplate_caac4992e9a0c16b59ee6756fad392ad extends Template
 {% block panel %}
     {{ render(controller('web_profiler.controller.router::panelAction', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
     }
 }

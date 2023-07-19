@@ -1828,6 +1828,6 @@ class __TwigTemplate_4c27f2093399a4ee4a56a65f8cc8b297 extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }

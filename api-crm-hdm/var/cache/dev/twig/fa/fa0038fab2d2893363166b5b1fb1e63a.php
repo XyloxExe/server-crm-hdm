@@ -227,6 +227,6 @@ class __TwigTemplate_f9b464e6f88aecc0f8e038864df0ced8 extends Template
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/exception.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
+", "@WebProfiler/Collector/exception.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
     }
 }

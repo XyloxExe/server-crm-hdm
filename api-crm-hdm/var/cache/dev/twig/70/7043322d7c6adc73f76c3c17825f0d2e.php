@@ -81,6 +81,6 @@ class __TwigTemplate_8e41443dfb1361501782bb32566f38ec extends Template
     public function getSourceContext()
     {
         return new Source("{% block panel '' %}
-", "@WebProfiler/Profiler/ajax_layout.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/ajax_layout.html.twig");
+", "@WebProfiler/Profiler/ajax_layout.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/ajax_layout.html.twig");
     }
 }
