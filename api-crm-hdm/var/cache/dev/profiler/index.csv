@@ -31,3 +31,10 @@ b52f20,127.0.0.1,POST,http://127.0.0.1:8000/api/users,1689840428,,500
 206804,127.0.0.1,POST,http://127.0.0.1:8000/api/users,1689840494,,201
 7fe957,127.0.0.1,POST,http://127.0.0.1:8000/api/login,1689840525,,200
 4cba76,127.0.0.1,POST,http://127.0.0.1:8000/api/users,1689840569,,201
+7f82d8,127.0.0.1,GET,http://127.0.0.1:8000/api,1689843094,,200
+83ad2d,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1689843277,1ae15f,404
+ffce3e,127.0.0.1,GET,http://127.0.0.1:8000/apple-touch-icon.png,1689843277,a09dbc,404
+a09dbc,127.0.0.1,GET,http://127.0.0.1:8000/apple-touch-icon.png,1689843277,,404
+1ae15f,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1689843277,,404
+ccff2f,127.0.0.1,GET,http://127.0.0.1:8000/apple-touch-icon-precomposed.png,1689843277,151baf,404
+151baf,127.0.0.1,GET,http://127.0.0.1:8000/apple-touch-icon-precomposed.png,1689843277,,404

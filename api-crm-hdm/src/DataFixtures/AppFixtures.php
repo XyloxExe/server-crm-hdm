@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 
+use App\Entity\Client;
 use App\Entity\Pole;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -41,11 +42,23 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
+        // Permet de mettre en place les pôles
         foreach ($poleNames as $name) {
             $pole = new Pole();
             $pole->setNamePole($name);
             $pole->setDescription($faker->text);
             $manager->persist($pole);
+        }
+
+        // Permet de créer 10 clients
+        for ($i = 0; $i < 10; $i++) {
+            $client = new Client();
+            $client->setFirstName($faker->firstName);
+            $client->setLastName($faker->lastName);
+            $client->setMail($faker->email);
+            $client->setTelephone($faker->phoneNumber);
+            $client->setCompany($faker->company);
+            $manager->persist($client);
         }
 
         $manager->flush();
