@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Client;
+use App\Entity\Intern;
 use App\Entity\Pole;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -59,6 +60,29 @@ class AppFixtures extends Fixture
             $client->setTelephone($faker->phoneNumber);
             $client->setCompany($faker->company);
             $manager->persist($client);
+        }
+
+        // Permet de créer 10 stagiaires
+        $startInternship = $faker->dateTime;
+        for ($i = 0; $i < 10; $i++) {
+            $inter = new Intern();
+            $inter->setFirstName($faker->firstName);
+            $inter->setLastName($faker->lastName);
+            $inter->setMail($faker->email);
+            $inter->setTelephone($faker->phoneNumber);
+            $inter->setAdress($faker->address);
+            $inter->setCountry($faker->country);
+            $inter->setSchool("Mon école");
+            $inter->setCity($faker->city);
+            $inter->setStartInternship($faker->dateTime);
+            $inter->setEndInternship($faker->dateTimeBetween($startInternship, 'now'));
+            $randomPoleName = $poleNames[array_rand($poleNames)];
+            $pole = $manager->getRepository(Pole::class)->findOneBy(['namePole' => $randomPoleName]);
+            $inter->setPole($pole);
+            $inter->setDateOfBirth($faker->dateTime);
+            $photoUrl = "https://picsum.photos/40/40";
+            $inter->setPhoto($photoUrl);
+            $manager->persist($inter);
         }
 
         $manager->flush();
