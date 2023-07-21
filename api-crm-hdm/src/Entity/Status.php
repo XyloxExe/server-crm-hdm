@@ -38,7 +38,7 @@ class Status
         return $this->typeStatus;
     }
 
-    public function setTypeStatus(string $typeStatus): static
+    public function setTypeStatus(string $typeStatus): self
     {
         $this->typeStatus = $typeStatus;
 
@@ -53,7 +53,7 @@ class Status
         return $this->tasks;
     }
 
-    public function addTask(Task $task): static
+    public function addTask(Task $task): self
     {
         if (!$this->tasks->contains($task)) {
             $this->tasks->add($task);
@@ -63,7 +63,7 @@ class Status
         return $this;
     }
 
-    public function removeTask(Task $task): static
+    public function removeTask(Task $task): self
     {
         if ($this->tasks->removeElement($task)) {
             // set the owning side to null (unless already changed)

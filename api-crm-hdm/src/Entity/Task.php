@@ -47,7 +47,7 @@ class Task
         return $this->title;
     }
 
-    public function setTitle(string $title): static
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -59,7 +59,7 @@ class Task
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -71,7 +71,7 @@ class Task
         return $this->dueDate;
     }
 
-    public function setDueDate(\DateTimeInterface $dueDate): static
+    public function setDueDate(\DateTimeInterface $dueDate): self
     {
         $this->dueDate = $dueDate;
 
@@ -83,7 +83,7 @@ class Task
         return $this->priority;
     }
 
-    public function setPriority(bool $priority): static
+    public function setPriority(bool $priority): self
     {
         $this->priority = $priority;
 
@@ -95,7 +95,7 @@ class Task
         return $this->pole;
     }
 
-    public function setPole(?Pole $pole): static
+    public function setPole(?Pole $pole): self
     {
         $this->pole = $pole;
 
@@ -107,7 +107,7 @@ class Task
         return $this->createdBy;
     }
 
-    public function setCreatedBy(?User $createdBy): static
+    public function setCreatedBy(?User $createdBy): self
     {
         $this->createdBy = $createdBy;
 
@@ -119,7 +119,7 @@ class Task
         return $this->status;
     }
 
-    public function setStatus(?Status $status): static
+    public function setStatus(?Status $status): self
     {
         $this->status = $status;
 

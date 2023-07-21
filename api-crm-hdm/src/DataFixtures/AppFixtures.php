@@ -6,6 +6,8 @@ namespace App\DataFixtures;
 use App\Entity\Client;
 use App\Entity\Intern;
 use App\Entity\Pole;
+use App\Entity\Status;
+use App\Entity\Task;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -25,6 +27,8 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
         $poleNames = ['web-dev', 'design-graph', 'seo', 'RHR', 'RHP', 'B2B'];
+        $typeStatus = ['Nouvelle', 'En attente', 'En cours ', 'Terminée', 'Annulée', 'En retard ', 'Problème', 'En révision'];
+        $user = $manager->getRepository(User::class)->findOneBy(['username' => 'John']);
 
         // Permet de créer 10 utilisateurs
         for ($i = 0; $i < 10; $i++) {
@@ -49,6 +53,13 @@ class AppFixtures extends Fixture
             $pole->setNamePole($name);
             $pole->setDescription($faker->text);
             $manager->persist($pole);
+        }
+
+        // Permet de mettre en place les types de status
+        foreach ($typeStatus as $name) {
+            $status = new Status();
+            $status->setTypeStatus($name);
+            $manager->persist($status);
         }
 
         // Permet de créer 10 clients
@@ -83,6 +94,23 @@ class AppFixtures extends Fixture
             $photoUrl = "https://picsum.photos/40/40";
             $inter->setPhoto($photoUrl);
             $manager->persist($inter);
+        }
+
+        // Permet de créer 5 tâches
+        for ($i = 0; $i < 5; $i++) {
+            $task = new Task();
+            $task->setTitle("Une tâche");
+            $task->setDescription("Description de la tâche");
+            $task->setDueDate($faker->dateTime);
+            $task->setPriority(false);
+            $randomPoleName = $poleNames[array_rand($poleNames)];
+            $pole = $manager->getRepository(Pole::class)->findOneBy(['namePole' => $randomPoleName]);
+            $task->setPole($pole);
+            $randomStatus = $typeStatus[array_rand($typeStatus)];
+            $status = $manager->getRepository(Status::class)->findOneBy(['typeStatus' => $randomStatus]);
+            $task->setStatus($status);
+            $task->setCreatedBy($user);
+            $manager->persist($task);
         }
 
         $manager->flush();
