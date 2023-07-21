@@ -3,12 +3,29 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Link;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use Symfony\Component\HttpFoundation\File\File;
 use App\Repository\InternRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InternRepository::class)]
-#[ApiResource]
+#[ApiResource(
+operations: [
+        new Get(),
+        new Put(),
+        new Delete(),
+        new Post(
+            uriVariables: [
+                    'id_pole' => new Link(fromClass: Pole::class)
+            ]
+        )
+    ]
+)]
 class Intern
 {
     #[ORM\Id]
