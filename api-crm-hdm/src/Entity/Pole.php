@@ -26,9 +26,13 @@ class Pole
     #[ORM\OneToMany(mappedBy: 'pole', targetEntity: Intern::class)]
     private Collection $interns;
 
+    #[ORM\OneToMany(mappedBy: 'pole', targetEntity: Task::class)]
+    private Collection $tasks;
+
     public function __construct()
     {
         $this->interns = new ArrayCollection();
+        $this->tasks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,6 +88,36 @@ class Pole
             // set the owning side to null (unless already changed)
             if ($intern->getPole() === $this) {
                 $intern->setPole(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Task>
+     */
+    public function getTasks(): Collection
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(Task $task): static
+    {
+        if (!$this->tasks->contains($task)) {
+            $this->tasks->add($task);
+            $task->setPole($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTask(Task $task): static
+    {
+        if ($this->tasks->removeElement($task)) {
+            // set the owning side to null (unless already changed)
+            if ($task->getPole() === $this) {
+                $task->setPole(null);
             }
         }
 
