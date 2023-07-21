@@ -16,13 +16,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(operations: [
-        new Get(),
-        new Put(),
-        new Delete(),
-        new Post(
-            uriTemplate: '/users',
-            controller: UserController::class,
-        )
+new Get(),
+    new Put(),
+    new Delete(),
+    new Post(
+        uriTemplate: '/users',
+        controller: UserController::class,
+    )
 ])]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -199,5 +199,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 }
