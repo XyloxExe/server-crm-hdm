@@ -846,6 +846,6 @@ $context["answer"] === false)) {
         </div>
     {% endif %}
 {% endblock %}
-", "@ApiPlatform/DataCollector/request_legacy.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/DataCollector/request_legacy.html.twig");
+", "@ApiPlatform/DataCollector/request_legacy.html.twig", "/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/DataCollector/request_legacy.html.twig");
     }
 }

@@ -73,6 +73,6 @@ class __TwigTemplate_4694260d6ff4f6341c9f649a695a4661 extends Template
     <path d=\"M4 6v6a8 3 0 0 0 16 0v-6\"></path>
     <path d=\"M4 12v6a8 3 0 0 0 16 0v-6\"></path>
 </svg>
-", "@Doctrine/Collector/database.svg", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/doctrine/doctrine-bundle/Resources/views/Collector/database.svg");
+", "@Doctrine/Collector/database.svg", "/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/vendor/doctrine/doctrine-bundle/Resources/views/Collector/database.svg");
     }
 }

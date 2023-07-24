@@ -403,6 +403,6 @@ class __TwigTemplate_0ab3c43cf459d081bbb5c6f15793ee3c extends Template
 
 </body>
 </html>
-", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
+", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
     }
 }

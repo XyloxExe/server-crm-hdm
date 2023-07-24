@@ -174,6 +174,6 @@ class __TwigTemplate_06d9a4894a0fa933092a4e8d80718bdf extends Template
         {% endif %}
     </div>
 {% endblock %}
-", "@WebProfiler/Profiler/open.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
+", "@WebProfiler/Profiler/open.html.twig", "/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/open.html.twig");
     }
 }

@@ -139,6 +139,6 @@ class __TwigTemplate_1ca14468e3fa004618c7082f1e2dec8f extends Template
 
 </body>
 </html>
-", "@ApiPlatform/Graphiql/index.html.twig", "/Users/maximecourte/Documents/Symfony/crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
+", "@ApiPlatform/Graphiql/index.html.twig", "/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/vendor/api-platform/core/src/Symfony/Bundle/Resources/views/Graphiql/index.html.twig");
     }
 }
