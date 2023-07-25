@@ -258,28 +258,20 @@
       </parameter>
     </parameter>
     <parameter key="nelmio_cors.defaults" type="collection">
-      <parameter key="allow_origin" type="collection">
-        <parameter>%env(CORS_ALLOW_ORIGIN)%</parameter>
-      </parameter>
+      <parameter key="allow_origin">true</parameter>
       <parameter key="allow_credentials">false</parameter>
-      <parameter key="allow_headers" type="collection">
-        <parameter>content-type</parameter>
-        <parameter>authorization</parameter>
-      </parameter>
-      <parameter key="expose_headers" type="collection">
-        <parameter>Link</parameter>
-      </parameter>
+      <parameter key="allow_headers">true</parameter>
+      <parameter key="expose_headers" type="collection"/>
       <parameter key="allow_methods" type="collection">
-        <parameter>GET</parameter>
-        <parameter>OPTIONS</parameter>
         <parameter>POST</parameter>
         <parameter>PUT</parameter>
-        <parameter>PATCH</parameter>
+        <parameter>GET</parameter>
         <parameter>DELETE</parameter>
+        <parameter>OPTIONS</parameter>
       </parameter>
       <parameter key="max_age">3600</parameter>
       <parameter key="hosts" type="collection"/>
-      <parameter key="origin_regex">true</parameter>
+      <parameter key="origin_regex">false</parameter>
       <parameter key="forced_allow_origin_value">null</parameter>
       <parameter key="skip_same_as_origin">true</parameter>
     </parameter>
@@ -535,6 +527,10 @@
       <argument type="service" id="security.user_password_hasher"/>
     </service>
     <service id="App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ContractRepository" class="App\Repository\ContractRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -4626,7 +4622,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.Ri1CG1f"/>
+      <argument type="service" id=".service_locator.a5cHGel"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -8102,6 +8098,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ClientRepository" class="App\Repository\ClientRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ContractRepository" class="App\Repository\ContractRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ContractRepository" class="App\Repository\ContractRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\InternRepository" class="App\Repository\InternRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\InternRepository" class="App\Repository\InternRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MessageRepository" class="App\Repository\MessageRepository" autowire="true" abstract="true"/>
@@ -8724,10 +8722,11 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.Ri1CG1f" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.a5cHGel" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ClientRepository" type="service_closure" id="App\Repository\ClientRepository"/>
+        <argument key="App\Repository\ContractRepository" type="service_closure" id="App\Repository\ContractRepository"/>
         <argument key="App\Repository\InternRepository" type="service_closure" id="App\Repository\InternRepository"/>
         <argument key="App\Repository\MessageRepository" type="service_closure" id="App\Repository\MessageRepository"/>
         <argument key="App\Repository\PoleRepository" type="service_closure" id="App\Repository\PoleRepository"/>
