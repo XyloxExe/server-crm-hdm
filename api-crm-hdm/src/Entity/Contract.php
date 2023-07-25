@@ -37,7 +37,7 @@ class Contract
         return $this->title;
     }
 
-    public function setTitle(string $title): static
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -49,7 +49,7 @@ class Contract
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -61,7 +61,7 @@ class Contract
         return $this->pdf;
     }
 
-    public function setPdf(string $pdf): static
+    public function setPdf(string $pdf): self
     {
         $this->pdf = $pdf;
 
@@ -73,7 +73,7 @@ class Contract
         return $this->client;
     }
 
-    public function setClient(?Client $client): static
+    public function setClient(?Client $client): self
     {
         $this->client = $client;
 
