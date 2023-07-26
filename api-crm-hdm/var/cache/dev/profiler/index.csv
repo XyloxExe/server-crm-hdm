@@ -29,3 +29,11 @@ e0eabd,::1,POST,http://localhost:8000/api/users,1690292067,,500
 f965aa,::1,POST,http://localhost:8000/api/users,1690292865,,201
 9e1efe,::1,GET,http://localhost:8000/,1690357216,,404
 e6f58a,::1,GET,http://localhost:8000/api,1690357222,,200
+44d98e,::1,GET,http://localhost:8000/favicon.ico,1690361174,be961f,404
+fc2b36,::1,GET,http://localhost:8000/apple-touch-icon.png,1690361174,08c186,404
+e0b352,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690361174,a59a6f,404
+a59a6f,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690361174,,404
+08c186,::1,GET,http://localhost:8000/apple-touch-icon.png,1690361174,,404
+be961f,::1,GET,http://localhost:8000/favicon.ico,1690361174,,404
+984b1f,127.0.0.1,POST,http://127.0.0.1:8000/api/login,1690364251,,200
+5260c2,::1,GET,http://localhost:8000/api,1690365691,,200
