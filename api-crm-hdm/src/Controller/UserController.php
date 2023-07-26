@@ -53,4 +53,13 @@ class UserController extends AbstractController
         return $this->json($user, 200);
     }
 
+    #[Route('/users', name: 'api_users_get', defaults: ['_api_resource_class' => User::class], methods: ['GET'])]
+    public function getUsers(EntityManagerInterface $entityManager)
+    {
+        $userRepository = $entityManager->getRepository(User::class);
+        $users = $userRepository->findAll();
+
+        return $this->json($users, 200);
+    }
+
 }

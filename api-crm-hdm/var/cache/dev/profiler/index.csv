@@ -37,3 +37,14 @@ a59a6f,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690361174
 be961f,::1,GET,http://localhost:8000/favicon.ico,1690361174,,404
 984b1f,127.0.0.1,POST,http://127.0.0.1:8000/api/login,1690364251,,200
 5260c2,::1,GET,http://localhost:8000/api,1690365691,,200
+57f3b6,::1,GET,http://localhost:8000/api,1690371569,,200
+7ce743,::1,GET,http://localhost:8000/api/user/1,1690371580,,200
+9e25d4,::1,GET,http://localhost:8000/api,1690371751,,200
+7d9ea8,::1,GET,http://localhost:8000/api/users,1690371759,caf049,500
+caf049,::1,GET,http://localhost:8000/api/users,1690371759,,500
+1306ac,::1,GET,http://localhost:8000/api,1690371810,,200
+6213e7,::1,GET,http://localhost:8000/api,1690371843,,200
+bc11c1,::1,GET,http://localhost:8000/api/users,1690371850,5e0c10,500
+5e0c10,::1,GET,http://localhost:8000/api/users,1690371850,,500
+d011dc,::1,GET,http://localhost:8000/api,1690372047,,200
+c8d741,::1,GET,http://localhost:8000/api/users,1690372056,,200

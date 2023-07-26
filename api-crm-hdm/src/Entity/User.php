@@ -19,7 +19,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(
 operations: [
-    new Get(uriTemplate: '/user/me'),
+        new Get(uriTemplate: '/user/me'),
+        new Get(uriTemplate:'/user/{id}'),
+        new Get(uriTemplate:'/users'),
         new Put(),
         new Delete(),
         new Post(uriTemplate: '/users', controller: UserController::class),
