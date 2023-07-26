@@ -23,9 +23,13 @@ class Status
     #[ORM\OneToMany(mappedBy: 'status', targetEntity: Task::class)]
     private Collection $tasks;
 
+    #[ORM\OneToMany(mappedBy: 'status', targetEntity: Project::class)]
+    private Collection $projects;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,6 +73,36 @@ class Status
             // set the owning side to null (unless already changed)
             if ($task->getStatus() === $this) {
                 $task->setStatus(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->setStatus($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getStatus() === $this) {
+                $project->setStatus(null);
             }
         }
 

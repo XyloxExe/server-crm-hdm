@@ -26,3 +26,6 @@ e0eabd,::1,POST,http://localhost:8000/api/users,1690292067,,500
 82937f,::1,GET,http://localhost:8000/api/users,1690292471,8294ff,500
 8294ff,::1,POST,http://localhost:8000/api/users,1690292471,,500
 6a5fdc,::1,POST,http://localhost:8000/api/users,1690292511,,201
+f965aa,::1,POST,http://localhost:8000/api/users,1690292865,,201
+9e1efe,::1,GET,http://localhost:8000/,1690357216,,404
+e6f58a,::1,GET,http://localhost:8000/api,1690357222,,200

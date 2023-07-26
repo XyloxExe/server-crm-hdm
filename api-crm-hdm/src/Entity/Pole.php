@@ -29,10 +29,14 @@ class Pole
     #[ORM\OneToMany(mappedBy: 'pole', targetEntity: Task::class)]
     private Collection $tasks;
 
+    #[ORM\OneToMany(mappedBy: 'pole', targetEntity: Project::class)]
+    private Collection $projects;
+
     public function __construct()
     {
         $this->interns = new ArrayCollection();
         $this->tasks = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -118,6 +122,36 @@ class Pole
             // set the owning side to null (unless already changed)
             if ($task->getPole() === $this) {
                 $task->setPole(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Project>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): static
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->setPole($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): static
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getPole() === $this) {
+                $project->setPole(null);
             }
         }
 

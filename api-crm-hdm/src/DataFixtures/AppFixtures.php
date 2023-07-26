@@ -6,6 +6,7 @@ namespace App\DataFixtures;
 use App\Entity\Client;
 use App\Entity\Intern;
 use App\Entity\Pole;
+use App\Entity\Project;
 use App\Entity\Status;
 use App\Entity\Task;
 use App\Entity\User;
@@ -111,6 +112,21 @@ class AppFixtures extends Fixture
             $task->setStatus($status);
             $task->setCreatedBy($user);
             $manager->persist($task);
+        }
+
+        // Permet de créer 5 projets
+        for ($i = 0; $i < 5; $i++) {
+            $project = new Project();
+            $project->setTitle("Un nouveau projet " . + $i);
+            $project->setDescription("Description du projet " . + $i);
+            $randomStatus = $typeStatus[array_rand($typeStatus)];
+            $status = $manager->getRepository(Status::class)->findOneBy(['typeStatus' => $randomStatus]);
+            $project->setStatus($status);
+            $project->setDate($faker->dateTime);
+            $randomPoleName = $poleNames[array_rand($poleNames)];
+            $pole = $manager->getRepository(Pole::class)->findOneBy(['namePole' => $randomPoleName]);
+            $project->setPole($pole);
+            $manager->persist($project);
         }
 
         $manager->flush();
