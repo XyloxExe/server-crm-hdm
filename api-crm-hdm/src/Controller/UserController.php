@@ -3,17 +3,23 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
 #[Route('/api')]
 #[ApiResource()]
 class UserController extends AbstractController
 {
+
+    private function generateUniqueFilename(UploadedFile $file): string
+    {
+        return md5(uniqid()) . '.' . $file->guessExtension();
+    }
+
     #[Route('/users', name: 'api_users_create', defaults: ['_api_resource_class' => User::class], methods: ['POST'])]
     public function createUserAction(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher): Response
     {
@@ -60,6 +66,26 @@ class UserController extends AbstractController
         $users = $userRepository->findAll();
 
         return $this->json($users, 200);
+    }
+
+    #[Route('/users/{id}/update_photo', name: 'api_users_upload',  methods: ['POST'])]
+    public function updateUserPhoto(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        $photoFile = $request->files->get('photoFilename');
+
+            $photoFilename = $this->generateUniqueFilename($photoFile);
+            $photoFile->move(
+                $this->getParameter('photo_user_directory'),
+                $photoFilename
+            );
+
+            $user->setPhotoFilename($photoFilename);
+
+            $entityManager->flush();
+
+            return new Response('Photo updated successfully', Response::HTTP_OK);
     }
 
 }

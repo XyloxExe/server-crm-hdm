@@ -5,7 +5,6 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use App\Controller\UserController;
@@ -13,6 +12,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -25,6 +25,7 @@ operations: [
         new Put(),
         new Delete(),
         new Post(uriTemplate: '/users', controller: UserController::class),
+        new Post(uriTemplate: '/users/{id}/update_photo', inputFormats: ['multipart' => ['multipart/form-data']], deserialize: false)
     ],
 )]
 
@@ -62,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $teamLeader = false;
 
+    #[ORM\Column(nullable: true)]
+    private ?string $photoFilename = null;
+
     #[ORM\OneToMany(mappedBy: 'createdBy', targetEntity: Task::class)]
     private Collection $tasks;
 
@@ -89,6 +93,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhotoFilename(): ?string
+    {
+        return $this->photoFilename;
+    }
+
+    /**
+     * @param string|null $photoFilename
+     */
+    public function setPhotoFilename(?string $photoFilename): void
+    {
+        $this->photoFilename = $photoFilename;
     }
 
     /**
@@ -223,7 +243,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->tasks;
     }
 
-    public function addTask(Task $task): static
+    public function addTask(Task $task): self
     {
         if (!$this->tasks->contains($task)) {
             $this->tasks->add($task);
@@ -233,7 +253,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeTask(Task $task): static
+    public function removeTask(Task $task): self
     {
         if ($this->tasks->removeElement($task)) {
             // set the owning side to null (unless already changed)
@@ -253,7 +273,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->messages;
     }
 
-    public function addMessage(Message $message): static
+    public function addMessage(Message $message): self
     {
         if (!$this->messages->contains($message)) {
             $this->messages->add($message);
@@ -263,7 +283,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeMessage(Message $message): static
+    public function removeMessage(Message $message): self
     {
         if ($this->messages->removeElement($message)) {
             // set the owning side to null (unless already changed)

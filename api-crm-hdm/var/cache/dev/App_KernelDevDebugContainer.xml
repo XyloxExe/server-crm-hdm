@@ -84,6 +84,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="photo_user_directory">/Users/maximecourte/Documents/Symfony/server-crm-hdm/api-crm-hdm/public/uploads</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -8567,13 +8568,14 @@
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.Ma4Aoik" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.DuvqYpc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MessageController::getUserMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\MessageController::sendMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UserController::createUserAction" type="service_closure" id=".service_locator.riGN6sa"/>
         <argument key="App\Controller\UserController::getUsers" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\UserController::updateUserPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -8582,6 +8584,7 @@
         <argument key="App\Controller\MessageController:sendMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UserController:createUserAction" type="service_closure" id=".service_locator.riGN6sa"/>
         <argument key="App\Controller\UserController:getUsers" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\UserController:updateUserPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -9252,12 +9255,12 @@
       <argument type="service" id="api_platform.serializer.context_builder.filter"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.Ma4Aoik"/>
+      <argument type="service" id=".service_locator.DuvqYpc"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.Ma4Aoik"/>
+      <argument type="service" id=".service_locator.DuvqYpc"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -10519,7 +10522,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Ma4Aoik"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.DuvqYpc"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -10547,7 +10550,7 @@
     <service id=".service_locator.bnaLdkn" alias="api_platform.serializer_locator"/>
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.4AgpOar" alias=".service_locator.Ma4Aoik"/>
+    <service id=".service_locator.6rkW826" alias=".service_locator.DuvqYpc"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
