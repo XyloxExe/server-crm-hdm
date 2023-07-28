@@ -136,6 +136,7 @@ return [
                         .'|(*:1265)'
                     .')'
                 .')'
+                .'|/public/uploads/([^/]++)(*:1300)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -230,8 +231,9 @@ return [
         1219 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         1240 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         1254 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        1265 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        1265 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        1300 => [
+            [['_route' => 'public_uploads', '_controller' => 'App\\Controller\\PublicUploadsController::show'], ['filename'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
