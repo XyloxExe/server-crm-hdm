@@ -142,3 +142,10 @@ a61f99,::1,GET,http://localhost:8000/api/user/11,1690552391,,200
 d42032,127.0.0.1,GET,http://127.0.0.1:8000/api,1690784935,,200
 9d7bf7,::1,POST,http://localhost:8000/api/users/2/remove_photo,1690785292,,200
 eeecbc,::1,POST,http://localhost:8000/api/users/1/remove_photo,1690785324,,200
+c213d2,::1,GET,http://localhost:8000/api/interns/1/update_photo,1690787504,7d0a62,404
+7d0a62,::1,POST,http://localhost:8000/api/interns/1/update_photo,1690787504,,404
+0bc035,::1,POST,http://localhost:8000/api/interns/1/update_photo,1690787758,,201
+f93aa6,::1,POST,http://localhost:8000/api/interns/1/update_photo,1690787836,,200
+bc475a,::1,GET,http://localhost:8000/api/interns/1/remove_photo,1690788115,2c528d,500
+2c528d,::1,POST,http://localhost:8000/api/interns/1/remove_photo,1690788115,,500
+5e6bdd,::1,POST,http://localhost:8000/api/interns/1/remove_photo,1690788145,,200

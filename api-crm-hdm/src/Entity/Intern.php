@@ -18,12 +18,9 @@ operations: [
         new Get(),
         new Put(),
         new Delete(),
-        new Post(
-            uriVariables: [
-                    'id_pole' => new Link(fromClass: Pole::class)
-            ]
-        )
-    ]
+        new Post(uriVariables: ['id_pole' => new Link(fromClass: Pole::class)]),
+        new Post(uriTemplate: '/interns/{id}/update_photo', inputFormats: ['multipart' => ['multipart/form-data']], deserialize: false)
+    ],
 )]
 class Intern
 {
@@ -68,7 +65,7 @@ class Intern
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateOfBirth = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(nullable: true)]
     private ?string $photo = null;
 
     public function getId(): ?int
