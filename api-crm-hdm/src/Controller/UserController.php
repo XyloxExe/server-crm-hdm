@@ -88,4 +88,15 @@ class UserController extends AbstractController
             return new Response('Photo updated successfully', Response::HTTP_OK);
     }
 
+    #[Route('/users/{id}/remove_photo', name: 'api_users_remove_photo', methods: ['POST'])]
+    public function removeUserPhoto(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        $user->setPhotoFilename(null);
+        $entityManager->flush();
+
+        return new Response('Photo removed successfully', Response::HTTP_OK);
+    }
+
 }

@@ -9,6 +9,7 @@ return [
     'Me' => [[], ['_controller' => 'App\\Controller\\UserController::Me'], [], [['text', '/api/user/me']], [], [], []],
     'api_users_get' => [[], ['_api_resource_class' => 'App\\Entity\\User', '_controller' => 'App\\Controller\\UserController::getUsers'], [], [['text', '/api/users']], [], [], []],
     'api_users_upload' => [['id'], ['_controller' => 'App\\Controller\\UserController::updateUserPhoto'], [], [['text', '/update_photo'], ['variable', '/', '[^/]++', 'id', true], ['text', '/api/users']], [], [], []],
+    'api_users_remove_photo' => [['id'], ['_controller' => 'App\\Controller\\UserController::removeUserPhoto'], [], [['text', '/remove_photo'], ['variable', '/', '[^/]++', 'id', true], ['text', '/api/users']], [], [], []],
     'api_login' => [[], [], [], [['text', '/api/login']], [], [], []],
     'api_genid' => [['id'], ['_controller' => 'api_platform.action.not_exposed', '_api_respond' => 'true'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/api/.well-known/genid']], [], [], []],
     'api_entrypoint' => [['index', '_format'], ['_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index' => 'index'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', 'index', 'index', true], ['text', '/api']], [], [], []],
