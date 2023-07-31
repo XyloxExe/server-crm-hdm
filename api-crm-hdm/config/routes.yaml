@@ -5,3 +5,11 @@ public_uploads:
   path: /public/uploads/{filename}
   controller: App\Controller\PublicUploadsController::show
 
+public_uploads_interns:
+  path: /public/uploads/intern/{filename}
+  controller: App\Controller\PublicUploadsController::showPhotoIntern
+
+pdf_uploads_contracts:
+  path: /public/uploads/pdf/contract/{filename}
+  controller: App\Controller\PublicUploadsController::showPdf
+

@@ -3,11 +3,25 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Controller\ContractController;
+use App\Controller\UserController;
 use App\Repository\ContractRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ContractRepository::class)]
-#[ApiResource]
+#[ApiResource(
+operations: [
+    new Get(),
+    new Put(),
+    new Delete(),
+    new Post(uriTemplate: '/contracts'),
+    new Post(uriTemplate: '/contracts/{id}/update_pdf', inputFormats: ['multipart' => ['multipart/form-data']], deserialize: false, controller: ContractController::class)
+    ],
+)]
 class Contract
 {
     #[ORM\Id]
@@ -21,7 +35,7 @@ class Contract
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(nullable: true)]
     private ?string $pdf = null;
 
     #[ORM\ManyToOne(inversedBy: 'contracts')]

@@ -6,6 +6,7 @@
 parameters:
     photo_user_directory: '%kernel.project_dir%/public/uploads'
     photo_intern_directory: '%kernel.project_dir%/public/uploads/intern'
+    pdf_contract_directory: '%kernel.project_dir%/public/uploads/pdf/contract'
 services:
     # default configuration for services in *this* file
     _defaults:

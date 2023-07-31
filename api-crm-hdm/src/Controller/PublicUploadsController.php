@@ -22,4 +22,11 @@ class PublicUploadsController extends AbstractController
         $filePath = $this->getParameter('photo_intern_directory') . '/' . $filename;
         return new BinaryFileResponse($filePath);
     }
+
+    #[Route('/public/uploads/pdf/contract/{filename}')]
+    public function showPdf(string $filename)
+    {
+        $filePath = $this->getParameter('pdf_contract_directory') . '/' . $filename;
+        return new BinaryFileResponse($filePath);
+    }
 }
