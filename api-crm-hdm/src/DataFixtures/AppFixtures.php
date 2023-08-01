@@ -8,6 +8,7 @@ use App\Entity\Intern;
 use App\Entity\Pole;
 use App\Entity\Project;
 use App\Entity\Status;
+use App\Entity\StatusClient;
 use App\Entity\Task;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -29,6 +30,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
         $poleNames = ['web-dev', 'design-graph', 'seo', 'RHR', 'RHP', 'B2B'];
         $typeStatus = ['Nouvelle', 'En attente', 'En cours ', 'Terminée', 'Annulée', 'En retard ', 'Problème', 'En révision'];
+        $typeClientStatus = ['Clients en cours', 'Clients en cours de traitement', 'Clients traités', 'Clients abandonnés', 'Clients inactifs', 'Clients potentiels'];
         $user = $manager->getRepository(User::class)->findOneBy(['username' => 'John']);
 
         // Permet de créer 10 utilisateurs
@@ -56,6 +58,13 @@ class AppFixtures extends Fixture
             $manager->persist($pole);
         }
 
+        // Permet de mettre en place les types des status clients
+        foreach ($typeClientStatus as $name) {
+            $statusClient = new StatusClient();
+            $statusClient->setTypeClient($name);
+            $manager->persist($statusClient);
+        }
+
         // Permet de mettre en place les types de status
         foreach ($typeStatus as $name) {
             $status = new Status();
@@ -71,6 +80,8 @@ class AppFixtures extends Fixture
             $client->setMail($faker->email);
             $client->setTelephone($faker->phoneNumber);
             $client->setCompany($faker->company);
+            $client->setCountry($faker->country);
+            $client->setAddress($faker->address);
             $manager->persist($client);
         }
 

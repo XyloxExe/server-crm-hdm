@@ -28,7 +28,7 @@ class StatusClient
         return $this->typeClient;
     }
 
-    public function setTypeClient(string $typeClient): static
+    public function setTypeClient(string $typeClient): self
     {
         $this->typeClient = $typeClient;
 
