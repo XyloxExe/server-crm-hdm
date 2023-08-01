@@ -39,6 +39,18 @@ class Client
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Contract::class)]
     private Collection $contracts;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $sector = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $country = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $address = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $comment = null;
+
     public function __construct()
     {
         $this->contracts = new ArrayCollection();
@@ -117,7 +129,7 @@ class Client
         return $this->contracts;
     }
 
-    public function addContract(Contract $contract): static
+    public function addContract(Contract $contract): self
     {
         if (!$this->contracts->contains($contract)) {
             $this->contracts->add($contract);
@@ -127,7 +139,7 @@ class Client
         return $this;
     }
 
-    public function removeContract(Contract $contract): static
+    public function removeContract(Contract $contract): self
     {
         if ($this->contracts->removeElement($contract)) {
             // set the owning side to null (unless already changed)
@@ -135,6 +147,54 @@ class Client
                 $contract->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSector(): ?string
+    {
+        return $this->sector;
+    }
+
+    public function setSector(?string $sector): self
+    {
+        $this->sector = $sector;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(?string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }
