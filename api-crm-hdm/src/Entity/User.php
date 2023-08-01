@@ -25,7 +25,8 @@ operations: [
         new Put(),
         new Delete(),
         new Post(uriTemplate: '/users', controller: UserController::class),
-        new Post(uriTemplate: '/users/{id}/update_photo', inputFormats: ['multipart' => ['multipart/form-data']], deserialize: false)
+        new Post(uriTemplate: '/users/{id}/update_photo', inputFormats: ['multipart' => ['multipart/form-data']], deserialize: false),
+        new Post(uriTemplate: '/users/{id}/remove_photo')
     ],
 )]
 

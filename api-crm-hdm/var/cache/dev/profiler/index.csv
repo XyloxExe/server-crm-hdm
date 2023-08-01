@@ -167,3 +167,17 @@ d304f6,127.0.0.1,GET,http://127.0.0.1:8000/profil/1,1690790906,cab435,404
 cab435,127.0.0.1,GET,http://127.0.0.1:8000/profil/1,1690790906,,404
 28cafa,127.0.0.1,GET,http://127.0.0.1:8000/public/uploads/pdf/contract/Model1wimsi_64c76bced0467.pdf,1690790992,,200
 e6a11c,127.0.0.1,GET,http://127.0.0.1:8000/api/clients?page=1,1690793527,,200
+7d88d5,::1,GET,http://localhost:8000/,1690797741,,404
+bf8fc3,::1,GET,http://localhost:8000/favicon.ico,1690797741,034529,404
+034529,::1,GET,http://localhost:8000/favicon.ico,1690797741,,404
+2526c2,::1,GET,http://localhost:8000/,1690799976,,404
+e23265,::1,GET,http://localhost:8000/,1690799978,,404
+67237b,::1,GET,http://localhost:8000/,1690800052,,404
+61de70,::1,GET,http://localhost:8000/,1690873435,,404
+f0a343,::1,GET,http://localhost:8000/favicon.ico,1690873435,8320e4,404
+8320e4,::1,GET,http://localhost:8000/favicon.ico,1690873435,,404
+3a8991,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690873435,6ffa65,404
+6ffa65,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690873435,,404
+19f823,::1,GET,http://localhost:8000/apple-touch-icon.png,1690873435,698276,404
+698276,::1,GET,http://localhost:8000/apple-touch-icon.png,1690873435,,404
+f29e87,::1,GET,http://localhost:8000/api,1690873439,,200
