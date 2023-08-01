@@ -26,7 +26,7 @@ Suivez les étapes ci-dessous pour mettre en place le projet localement :
    Clonez le projet depuis GitHub en utilisant la commande suivante dans votre terminal :
 
    ```bash
-   git clone https://github.com/XyloxExe/server-crm-hdm.git
+   git clone https://github.com/polewebdev/server-crm-hdm.git
 
 2. **Accéder au répertoire du projet :**
     Utilisez la commande cd pour accéder au répertoire du projet que vous venez de cloner :
