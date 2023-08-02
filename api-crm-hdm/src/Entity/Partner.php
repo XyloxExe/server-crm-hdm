@@ -3,12 +3,25 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Controller\PartnerController;
 use App\Repository\PartnerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PartnerRepository::class)]
-#[ApiResource]
+#[ApiResource(
+operations: [
+    new Get(),
+    new Get(uriTemplate: '/partners'),
+    new Put(),
+    new Delete(),
+    new Post(uriTemplate: '/partners', controller: PartnerController::class),
+    ],
+)]
 class Partner
 {
     #[ORM\Id]

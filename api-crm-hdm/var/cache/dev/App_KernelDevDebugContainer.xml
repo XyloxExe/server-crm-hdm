@@ -533,6 +533,13 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\MessageController"/>
       </call>
     </service>
+    <service id="App\Controller\PartnerController" class="App\Controller\PartnerController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\PartnerController"/>
+      </call>
+    </service>
     <service id="App\Controller\PublicUploadsController" class="App\Controller\PublicUploadsController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -8142,6 +8149,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MessageController" class="App\Controller\MessageController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PartnerController" class="App\Controller\PartnerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PartnerController" class="App\Controller\PartnerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PartnerController" class="App\Controller\PartnerController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PublicUploadsController" class="App\Controller\PublicUploadsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PublicUploadsController" class="App\Controller\PublicUploadsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\PublicUploadsController" class="App\Controller\PublicUploadsController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -8618,12 +8628,14 @@
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.UukoN0s" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.RvRF8nc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ContractController::updatePdfContract" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\MessageController::getUserMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\MessageController::sendMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\PartnerController::addPartner" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\PartnerController::getPartner" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UpdateInternPhotoController::removeInternsPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UpdateInternPhotoController::updateInternPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UserController::createUserAction" type="service_closure" id=".service_locator.riGN6sa"/>
@@ -8637,6 +8649,8 @@
         <argument key="App\Controller\ContractController:updatePdfContract" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\MessageController:getUserMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\MessageController:sendMessage" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\PartnerController:addPartner" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\PartnerController:getPartner" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UpdateInternPhotoController:removeInternsPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UpdateInternPhotoController:updateInternPhoto" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\UserController:createUserAction" type="service_closure" id=".service_locator.riGN6sa"/>
@@ -9094,6 +9108,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\PartnerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PartnerController"/>
+      <argument>App\Controller\PartnerController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\PublicUploadsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\PublicUploadsController"/>
       <argument>App\Controller\PublicUploadsController</argument>
@@ -9334,12 +9354,12 @@
       <argument type="service" id="api_platform.serializer.context_builder.filter"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.UukoN0s"/>
+      <argument type="service" id=".service_locator.RvRF8nc"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.UukoN0s"/>
+      <argument type="service" id=".service_locator.RvRF8nc"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -10601,7 +10621,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.UukoN0s"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.RvRF8nc"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -10629,7 +10649,7 @@
     <service id=".service_locator.bnaLdkn" alias="api_platform.serializer_locator"/>
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.E3ckOxr" alias=".service_locator.UukoN0s"/>
+    <service id=".service_locator._6V9Hdj" alias=".service_locator.RvRF8nc"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
