@@ -181,3 +181,13 @@ f0a343,::1,GET,http://localhost:8000/favicon.ico,1690873435,8320e4,404
 19f823,::1,GET,http://localhost:8000/apple-touch-icon.png,1690873435,698276,404
 698276,::1,GET,http://localhost:8000/apple-touch-icon.png,1690873435,,404
 f29e87,::1,GET,http://localhost:8000/api,1690873439,,200
+b9283b,::1,GET,http://localhost:8000/api,1690898483,,200
+f3a956,::1,GET,http://localhost:8000/,1690958959,,404
+5b3461,::1,GET,http://localhost:8000/favicon.ico,1690958959,63b283,404
+63b283,::1,GET,http://localhost:8000/favicon.ico,1690958959,,404
+f9e46f,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690958959,d6b4b3,404
+d6b4b3,::1,GET,http://localhost:8000/apple-touch-icon-precomposed.png,1690958959,,404
+42c18c,::1,GET,http://localhost:8000/apple-touch-icon.png,1690958959,2ec06d,404
+2ec06d,::1,GET,http://localhost:8000/apple-touch-icon.png,1690958959,,404
+832945,::1,GET,http://localhost:8000/api,1690958964,,200
+a93538,::1,GET,http://localhost:8000/api,1690960215,,200
