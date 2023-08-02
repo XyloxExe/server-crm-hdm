@@ -155,3 +155,18 @@ Voici la liste des fonctionnalités disponibles dans l'API CRM HDM :
 
 - **Messages Privés :**
   - Système de messagerie privée entre deux utilisateurs
+  
+  **Status Client :**
+  - Création d'un statut client
+  - Suppression d'un statut client
+  - Récupération des données d'un statut client
+  
+  **Société :**
+    - Création d'une société
+    - Suppression d'une société
+    - Récupération des données d'une société
+    
+   **Partenaire :**
+    - Création d'un partenaire par l'utilisateur connecté
+    - Suppression d'un partenaire
+    - Récupération des données des partenaires
