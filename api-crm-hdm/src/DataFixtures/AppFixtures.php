@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Client;
+use App\Entity\Company;
 use App\Entity\Intern;
 use App\Entity\Pole;
 use App\Entity\Project;
@@ -138,6 +139,16 @@ class AppFixtures extends Fixture
             $pole = $manager->getRepository(Pole::class)->findOneBy(['namePole' => $randomPoleName]);
             $project->setPole($pole);
             $manager->persist($project);
+        }
+
+        // Permet de créer 3 sociétés
+        for ($i = 0; $i < 3; $i++) {
+            $company = new Company();
+            $company->setName($faker->company);
+            $company->setAddress($faker->address);
+            $company->setTelephone($faker->phoneNumber);
+            $company->setMail($faker->email);
+            $manager->persist($company);
         }
 
         $manager->flush();
