@@ -73,10 +73,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'sender', targetEntity: Message::class)]
     private Collection $messages;
 
+    #[ORM\OneToMany(mappedBy: 'addedBy', targetEntity: Partner::class)]
+    private Collection $partners;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->partners = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -290,6 +294,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($message->getSender() === $this) {
                 $message->setSender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Partner>
+     */
+    public function getPartners(): Collection
+    {
+        return $this->partners;
+    }
+
+    public function addPartner(Partner $partner): static
+    {
+        if (!$this->partners->contains($partner)) {
+            $this->partners->add($partner);
+            $partner->setAddedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removePartner(Partner $partner): static
+    {
+        if ($this->partners->removeElement($partner)) {
+            // set the owning side to null (unless already changed)
+            if ($partner->getAddedBy() === $this) {
+                $partner->setAddedBy(null);
             }
         }
 
