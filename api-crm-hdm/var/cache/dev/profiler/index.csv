@@ -208,3 +208,4 @@ dbd073,::1,GET,http://localhost:8000/api/partners/2,1690963058,,200
 700a54,127.0.0.1,GET,http://127.0.0.1:8000/api/partners,1690964290,,200
 621f33,::1,GET,http://localhost:8000/api,1690964338,,200
 79e650,::1,GET,http://localhost:8000/api/partners,1690964345,,200
+c0ec49,::1,GET,http://localhost:8000/api,1690973669,,200
